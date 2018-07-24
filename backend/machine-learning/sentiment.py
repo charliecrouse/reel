@@ -54,7 +54,7 @@ gs.fit(X_train, y_train)
 print("Validation Score", gs.score(X_test, y_test))
 
 # Persist the model into the file `model.pkl`.
-joblib.dump(gs, 'model.pkl')
+joblib.dump(gs, 'clf.pkl')
 
-# The model can be loaded by using joblib: clf = joblib.load('model.pkl')
-gs = joblib.load('model.pkl')
+# The model can now be loaded by using joblib.
+# gs = joblib.load('clf.pkl')
