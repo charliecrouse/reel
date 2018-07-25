@@ -2,6 +2,8 @@ import React from 'react';
 
 import './App.css';
 
+import {withLayout} from '../hoc/withLayout';
+
 export class App extends React.Component {
   render() {
     return (
@@ -12,4 +14,4 @@ export class App extends React.Component {
   }
 }
 
-export default App;
+export default withLayout(App);
