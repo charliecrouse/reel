@@ -12,7 +12,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ext js,jsx"
+    "lint": "eslint . --ext js,jsx",
+    "precommit": "yarn run lint && yarn run lint --fix"
   },
   "proxy": "http://localhost:5000",
   "devDependencies": {
