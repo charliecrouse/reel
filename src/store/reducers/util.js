@@ -1,15 +1,17 @@
 export function handleActionStart(state) {
-  return {
-    ...state,
-    loading: true,
-    error: null
-  };
+  const updatedState = {...state};
+
+  updatedState['loading'] = true;
+  updatedState['error'] = null;
+
+  return updatedState;
 }
 
 export function handleActionError(state, action) {
-  return {
-    ...state,
-    loading: false,
-    error: action.error.message
-  };
+  const updatedState = {...state};
+
+  updatedState['loading'] = false;
+  updatedState['error'] = action.error;
+
+  return updatedState;
 }

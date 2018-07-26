@@ -1,19 +1,18 @@
 import {types} from '../actions';
-
 import {handleActionStart, handleActionError} from './util';
 
 const initialState = {
-  articles: [],
+  sentiments: [],
   loading: false,
   error: null
 };
 
-function fetchArticlesCompl(state, action) {
+function fetchSentimentCompl(state, action) {
   const updatedState = {...state};
 
   updatedState['loading'] = false;
-  updatedState['error'] = null;
-  updatedState['articles'] = action.articles;
+  updatedState['error'] = false;
+  updatedState['sentiments'] = action.sentiments;
 
   return updatedState;
 }
@@ -21,14 +20,14 @@ function fetchArticlesCompl(state, action) {
 function reducer(state = initialState, action) {
   switch (action.type) {
     // START
-    case types.FETCH_ARTICLES_START:
+    case types.FETCH_SENTIMENTS_START:
       return handleActionStart(state);
     // ERROR
     case types.FETCH_ARTICLES_ERROR:
       return handleActionError(state, action);
     // COMPL
-    case types.FETCH_ARTICLES_COMPL:
-      return fetchArticlesCompl(state, action);
+    case types.FETCH_SENTIMENTS_COMPL:
+      return fetchSentimentCompl(state, action);
     default:
       return state;
   }
