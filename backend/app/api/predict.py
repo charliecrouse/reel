@@ -1,3 +1,4 @@
+import pandas as pd
 from flask import Blueprint, jsonify, request
 from sklearn.externals import joblib
 
@@ -18,9 +19,12 @@ def index():
 
     pred = clf.predict(headlines)
 
+    # Format the predictions in order to serialize to json.
+    df = pd.DataFrame(list(pred))
+
     ret = {
         'headlines': headlines,
-        'sentiments': str(list(pred)),
+        'sentiments': df.to_json(orient="records"),
     }
 
     return jsonify(ret), 200
