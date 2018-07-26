@@ -43,6 +43,9 @@ First, the backend:
 ```sh
 cd backend
 
+# Activate virtualenv
+pipenv shell
+
 # Set necessary environment variables.
 export FLASK_ENV=development
 export FLASK_APP=app
@@ -51,7 +54,7 @@ export FLASK_APP=app
 flask run
 ```
 
-Now, the frontend (make sure you are in the root directory):
+Now, in a new terminal instance from the project root, run the frontend:
 ```sh
 yarn run start
 ```
