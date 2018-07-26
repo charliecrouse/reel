@@ -12,7 +12,7 @@ export class Article extends React.Component {
 
         {/* Article Description */}
         <p id="article-description">
-          {this.props.description === ''
+          {this.props.description === null
             ? 'No Description'
             : this.props.description}
         </p>
@@ -21,9 +21,13 @@ export class Article extends React.Component {
   }
 }
 
+Article.defaultProps = {
+  description: 'No Description'
+};
+
 Article.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   url: PropTypes.string.isRequired
 };
 
