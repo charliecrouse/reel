@@ -1,5 +1,8 @@
 import React from 'react';
 
+// import {Search} from './Search';
+import {Search} from '../../containers/Navbar/Search';
+
 export class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -9,14 +12,9 @@ export class Navbar extends React.Component {
   render() {
     return (
       <div id="navbar-container">
-        <h1 id="navbar-brand">reel</h1>
+        <h1 id="navbar-brand">REEL</h1>
         <div id="navbar-items-container" align="right">
-          <div>
-            <p>top headlines</p>
-          </div>
-          <div>
-            <p>search</p>
-          </div>
+          <Search />
         </div>
       </div>
     );

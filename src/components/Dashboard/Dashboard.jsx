@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-// import {Articles} from './Articles';
-import {Articles} from '../../containers/Articles';
+import './Dashboard.css';
+
+import {Article} from './Article';
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -9,13 +11,50 @@ export class Dashboard extends React.Component {
     this.state = {};
   }
 
+  getArticles(sentiment) {
+    // Send all articles if no sentiment is specified.
+    if (sentiment === undefined) {
+      return this.props.articles;
+    }
+
+    // Filter through all articles to find the ones with the specified
+    // sentiment.
+    const articles = this.props.articles.filter(
+      (articles, i) => this.props.sentiments[i] === sentiment
+    );
+
+    // Generate Article components for each article that matched the given
+    // sentiment.
+    return articles.map((article, i) => (
+      <Article key={'article-' + i} {...article} sentiment={sentiment} />
+    ));
+  }
+
   render() {
     return (
       <div id="dashboard-container">
-        <Articles search={this.state.search} />
+        <div className="row">
+          <div id="articles-container" className="column">
+            <h2>Positive</h2>
+            {this.getArticles(1)}
+          </div>
+          <div id="articles-container" className="column">
+            <h2>Negative</h2>
+            {this.getArticles(0)}
+          </div>
+        </div>
       </div>
     );
   }
 }
+
+Dashboard.propTypes = {
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      ...Article.propTypes
+    })
+  ).isRequired,
+  sentiments: PropTypes.arrayOf(PropTypes.number).isRequired
+};
 
 export default Dashboard;

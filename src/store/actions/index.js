@@ -2,7 +2,7 @@
 export {default as types} from './types';
 
 // ARTICLES
-export {fetchArticles} from './articles';
+export {fetchArticles, queryArticles} from './articles';
 
 // SENTIMENTS
 export {fetchSentiments} from './sentiments';
