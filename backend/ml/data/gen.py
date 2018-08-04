@@ -10,7 +10,6 @@ from sklearn.model_selection import train_test_split
 # run these downloads in order to run the preprocessing script
 # import nltk
 # nltk.download('stopwords')
-# nltk.download('punkt')
 
 stop_words = set(stopwords.words('english'))
 
