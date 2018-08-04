@@ -28,8 +28,13 @@ export class Search extends React.Component {
   }
 
   handleSubmit(e) {
+    // Prevent the search from reloading the page.
     e.preventDefault();
+
+    // Extract the value of the search field.
     const {value} = this.state;
+
+    // Execute the search.
     this.props.handleSubmit(value);
   }
 
