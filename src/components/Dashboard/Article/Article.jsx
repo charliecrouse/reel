@@ -3,7 +3,7 @@ import React from 'react';
 
 import './Article.css';
 
-import {Vote} from './Vote';
+import {VoteButton} from './VoteButton';
 
 export class Article extends React.Component {
   constructor(props) {
@@ -12,34 +12,35 @@ export class Article extends React.Component {
   }
 
   vote(sentiment) {
-    switch (sentiment) {
-      case 0:
-        break;
-      case 1:
-        break;
-      default:
-        break;
+    if (sentiment === 0) {
+      console.log('Voting for Negative.'); // eslint-disable-line
+    } else {
+      console.log('Voting for positive.'); // eslint-disable-line
     }
   }
 
   render() {
     return (
       <div id="article-container">
-        {/* Title */}
-        <a href={this.props.url}>
-          <h3 id="article-title">{this.props.title}</h3>
-        </a>
-
-        {/* Description */}
-        <div id="article-description-container">
-          <span id="article-description">{this.props.description}</span>
-          {/* Positive */}
-          <Vote sentiment={1} onClick={this.vote} />
-          <Vote onClick={this.vote} />
-          <Vote sentiment={0} onClick={this.vote} />
+        <div id="article-header-container">
+          {/* Title */}
+          <a id="article-link" href={this.props.url}>
+            <h3 id="article-title">{this.props.title}</h3>
+          </a>
         </div>
 
-        {/* Add/Rate Sentiment */}
+        <div id="article-body-container">
+          {/* Description */}
+          <div id="article-description-container">
+            <span id="article-description">{this.props.description}</span>
+          </div>
+
+          {/* Voting Buttons */}
+          <div id="article-actions-container">
+            <VoteButton sentiment={1} onClick={this.vote} />
+            <VoteButton sentiment={0} onClick={this.vote} />
+          </div>
+        </div>
       </div>
     );
   }

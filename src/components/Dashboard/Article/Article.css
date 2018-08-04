@@ -1,11 +1,17 @@
 #article-container {
-  margin: 5px;
-  margin-top: 15px;
-  padding: 10px;
+  margin: 15px 15px 15px 0px;
   border: 1px solid #BDBDBD;
   border-radius: 25px;
 }
 
-#article-title {
-  line-height: 1.7em;
+#article-header-container {
+  margin: 20px;
+  width: 90%;
+}
+
+#article-body-container {
+  width: 80%;
+  /* Top, Right, Bottom, Left */
+  margin: 0px 20px 20px 20px;
+  display: flex;
 }

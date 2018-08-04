@@ -34,12 +34,12 @@ export class Dashboard extends React.Component {
     return (
       <div id="dashboard-container">
         <div className="row">
-          <div id="articles-container" className="column">
-            <h2>Positive</h2>
+          <div className="column">
+            <h2 id="articles-header">Positive</h2>
             {this.getArticles(1)}
           </div>
-          <div id="articles-container" className="column">
-            <h2>Negative</h2>
+          <div className="column">
+            <h2 id="articles-header">Negative</h2>
             {this.getArticles(0)}
           </div>
         </div>

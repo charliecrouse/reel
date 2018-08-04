@@ -10,10 +10,12 @@ export class DashboardContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.props.fetchArticles(this.props.query);
+    // Fetch articles on initial page load.
+    this.props.fetchArticles();
   }
 
   componentDidUpdate(prevProps) {
+    // The articles have not changed, do not fetch any sentiments.
     if (this.props.fetchedAt === prevProps.fetchedAt) {
       return;
     }
@@ -33,16 +35,11 @@ export class DashboardContainer extends React.Component {
   }
 }
 
-DashboardContainer.defaultProps = {
-  query: ''
-};
-
 DashboardContainer.propTypes = {
   // Container props
   fetchArticles: PropTypes.func.isRequired,
   fetchSentiments: PropTypes.func.isRequired,
   fetchedAt: PropTypes.number,
-  query: PropTypes.string,
   // Component Props
   articles: Dashboard.propTypes.articles,
   sentiments: Dashboard.propTypes.sentiments
