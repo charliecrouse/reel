@@ -1,5 +1,9 @@
 #article-container {
+  margin: 5px;
+  margin-top: 15px;
   padding: 10px;
+  border: 1px solid #BDBDBD;
+  border-radius: 25px;
 }
 
 #article-title {

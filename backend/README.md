@@ -1,2 +1,1 @@
-# backend
-Backend API for news-reel.
+# Backend for reel.

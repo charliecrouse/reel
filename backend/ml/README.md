@@ -1,4 +1,4 @@
-# Machine Learning repository for news-reel.
+# Machine Learning repository for reel.
 
 ## Data
 
