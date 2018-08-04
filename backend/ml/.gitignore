@@ -83,8 +83,6 @@ celerybeat-schedule
 
 # Environments
 .env
-test.env
-production.env
 .venv
 env/
 venv/
@@ -104,3 +102,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Cleaned Data
+*.cleaned
+neg.csv
+pos.csv
+
+# Trained Model
+clf.pkl

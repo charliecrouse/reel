@@ -1,13 +1,13 @@
 import pandas as pd
 from flask import Blueprint, jsonify, request
-from sklearn.externals import joblib
 
-clf = joblib.load('ml/clf.pkl')
-
-predict_bp = Blueprint('predict', __name__, url_prefix='/predict')
+from app.ml import clf
 
 
-@predict_bp.route('/', methods=['POST'])
+predict_blueprint = Blueprint('predict', __name__, url_prefix='/predict')
+
+
+@predict_blueprint.route('/', methods=['POST'])
 def index():
     # If there is no JSON payload in the request, respond with a 400 error.
     if not request.is_json:
@@ -27,7 +27,7 @@ def index():
     if not isinstance(headlines, list) or not isinstance(headlines[0], str):
         return jsonify({'message': 'headlines must be a list of strings'}), 400
 
-    # If the request contains a `headlines`` field, but the value is empty,
+    # If the request contains a `headlines` field, but the value is empty,
     # respond with a 400 error.
     if len(headlines) == 0:
         return jsonify({'message': 'headlines must not be empty'}), 400

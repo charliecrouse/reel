@@ -4,13 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+flask = "*"
+flask-sqlalchemy = "*"
+python-dotenv = "*"
+"psycopg2" = "*"
+scikit-learn = "*"
 numpy = "*"
 scipy = "*"
-sklearn = "*"
-flask = "*"
-gunicorn = "*"
 pandas = "*"
-nltk = "*"
 
 [dev-packages]
 "flake8" = "*"
